@@ -1,5 +1,5 @@
-import { Header } from './Header'
+import { AppHeader } from './AppHeader'
 
 export {
-  Header
+  AppHeader
 }

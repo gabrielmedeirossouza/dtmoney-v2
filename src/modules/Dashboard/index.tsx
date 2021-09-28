@@ -1,5 +1,5 @@
-import { Header } from '../../components/shared'
-import { AppButton } from '../../components/global'
+import { AppHeader } from '../../components/shared'
+import { Button } from '../../components/global'
 import { Summary } from './components'
 
 import { useTransactions } from '../../contexts/useTransactions'
@@ -20,11 +20,11 @@ export function Dashboard() {
 
   return (
     <>
-      <Header>
-        <AppButton onRequestClick={handleCreateNewTransaction}>
+      <AppHeader>
+        <Button onRequestClick={handleCreateNewTransaction}>
           Nova Transação
-        </AppButton>
-      </Header>
+        </Button>
+      </AppHeader>
 
       <Summary />
     </>

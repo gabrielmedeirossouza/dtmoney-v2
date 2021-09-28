@@ -1,7 +1,9 @@
-import { AppButton } from './AppButton'
-import { AppCard } from './AppCard'
+import { Button } from './Button'
+import { Card } from './Card'
+import { DataTable } from './DataTable'
 
 export {
-  AppButton,
-  AppCard
+  Button,
+  Card,
+  DataTable
 }

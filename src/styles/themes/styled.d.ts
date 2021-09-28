@@ -12,6 +12,7 @@ declare module 'styled-components' {
       backgroundLight: string
 
       text: string
+      textSmoothLight: string
       textLight: string
 
       positive: string

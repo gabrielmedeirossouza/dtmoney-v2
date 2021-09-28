@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode
 }
 
-export function Header({ children }: Props) {
+export function AppHeader({ children }: Props) {
   return (
     <Container>
       <MainContainer>

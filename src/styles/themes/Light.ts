@@ -9,6 +9,7 @@ export const light = {
     backgroundLight: '#FFFFFF',
 
     text: '#363F5F',
+    textSmoothLight: '#969CB2',
     textLight: '#FAFAFA',
 
     positive: '#33CC95',

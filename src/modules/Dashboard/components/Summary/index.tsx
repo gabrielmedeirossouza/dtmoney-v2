@@ -1,31 +1,50 @@
-import { AppCard } from '../../../../components/global'
-import { Container } from './styles'
+import {
+  Container,
+  Header,
+  CardIncome,
+  CardWithdraw,
+  CardTotal,
+  StyledDataTable
+} from './styles'
 
-import incomeIcon from '../../../../assets/icons/income.svg'
-import withdrawIcon from '../../../../assets/icons/withdraw.svg'
-import totalIcon from '../../../../assets/icons/total.svg'
+
+const head = [
+  'Título',
+  'Preço',
+  'Categoria',
+  'Data'
+]
+
+const body = [
+  ['Teste', '1000', 'qualquer', '13/10/1997'],
+  ['Supermercado', '3000', 'algum', '13/10/1996'],
+  ['Te', '2000', 'compras', '13/10/1995'],
+]
 
 export function Summary() {
   return (
     <Container>
-      <AppCard
-        title="Entradas"
-        icon={incomeIcon}
-        text={'R$ 1.200,00'}
-      />
+      <Header>
+        <CardIncome text={'R$ 1.200,00'} />
+        <CardWithdraw text={'R$ 200,00'} />
+        <CardTotal text={'R$ 1.000,00'} />
+      </Header>
 
-      <AppCard
-        title="Saídas"
-        icon={withdrawIcon}
-        text={'R$ 200,00'}
-      />
+      <StyledDataTable>
+        <thead>
+          <tr>
+            {head.map(th => <th key={String(th)}>{th}</th>)}
+          </tr>
+        </thead>
 
-      <AppCard
-        title="Total"
-        icon={totalIcon}
-        text={'R$ 1.000,00'}
-        type="positive"
-      />
+        <tbody>
+          {body.map((tr, i) => (
+            <tr key={String(i)}>{tr.map((td, k) => (
+              <td key={String(k)}>{td}</td>
+            ))}</tr>
+          ))}
+        </tbody>
+      </StyledDataTable>
     </Container>
   )
 }

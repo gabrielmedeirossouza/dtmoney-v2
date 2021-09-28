@@ -5,8 +5,18 @@ interface Props {
 }
 
 export const Container = styled.div<Props>`
-  color: ${props => props.type ? props.theme.colors.textLight : props.theme.colors.text};
-  background-color: ${props => props.type ? props.theme.colors[props.type] : props.theme.colors.backgroundLight};
+  color: ${
+    props => props.type
+      ? props.theme.colors.textLight
+      : props.theme.colors.text
+  };
+
+  background-color: ${
+    props => props.type
+      ? props.theme.colors[props.type]
+      : props.theme.colors.backgroundLight
+  };
+
   border-radius: 4px;
   padding: 24px;
 

@@ -1,5 +1,4 @@
 import { Container } from './styles'
-
 interface Props {
   title: string
   icon: string
@@ -7,7 +6,7 @@ interface Props {
   type?: "positive" | "negative" | "attention"
 }
 
-export function AppCard({ title, icon, text, type }: Props) {
+export function Card({ title, icon, text, type }: Props) {
   return (
     <Container type={type}>
       <div>
