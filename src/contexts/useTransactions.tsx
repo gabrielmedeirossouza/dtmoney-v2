@@ -1,4 +1,6 @@
-import {createContext, ReactNode, useContext, useState} from "react";
+import {
+  createContext, ReactNode, useContext, useState,
+} from 'react';
 
 interface Transaction {
   id: number
@@ -13,7 +15,7 @@ type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>
 
 interface Context {
   transactions: Transaction[]
-  createNewTransaction: (transaction: TransactionInput) => void
+  createNewTransaction(input: TransactionInput): void
 }
 
 interface Props {
@@ -21,26 +23,25 @@ interface Props {
 }
 
 const TransactionsContext = createContext<Context>(
-  {} as Context
-)
+  {} as Context,
+);
 
-export function TransactionsProvider({ children }: Props) {
+export const TransactionsProvider = ({ children }: Props) => {
+  const [transactions] = useState<Transaction[]>([]);
 
-  const [transactions] = useState<Transaction[]>([])
-
-  function createNewTransaction(input: TransactionInput) {
-    console.log(input)
-  }
+  const createNewTransaction = (input: TransactionInput) => {
+    console.log(input);
+  };
 
   return (
-    <TransactionsContext.Provider value={{transactions, createNewTransaction}}>
+    <TransactionsContext.Provider value={{ transactions, createNewTransaction }}>
       {children}
     </TransactionsContext.Provider>
-  )
-}
+  );
+};
 
-export function useTransactions() {
-  const context = useContext(TransactionsContext)
+export const useTransactions = () => {
+  const context = useContext(TransactionsContext);
 
-  return context
-}
+  return context;
+};

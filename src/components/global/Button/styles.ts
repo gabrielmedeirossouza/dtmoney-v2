@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.button`
   font-size: 16px;
 
   color: #fafafa;
-  background-color: ${props => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.secondary};
 
   border: none;
   border-radius: 5px;
@@ -17,4 +17,4 @@ export const Container = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
-`
+`;

@@ -1,7 +1,7 @@
-import 'react-i18next'
+import 'react-i18next';
 
-import { ptBr } from './locales/pt-br'
-import { enUs } from './locales/en-us'
+import { ptBr } from './locales/pt-br';
+import { enUs } from './locales/en-us';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {

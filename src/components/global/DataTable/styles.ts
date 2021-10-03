@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.table`
   width: 100%;
@@ -11,7 +11,7 @@ export const Container = styled.table`
       display: grid;
       grid-template-columns: repeat(4, 1fr);
 
-      background-color: ${props => props.theme.colors.backgroundLight};
+      background-color: ${(props) => props.theme.colors.backgroundLight};
 
       width: 100%;
       padding: 20px 32px;
@@ -21,7 +21,7 @@ export const Container = styled.table`
       td {
         font-size: 16px;
         font-weight: 400;
-        color: ${props => props.theme.colors.text};
+        color: ${(props) => props.theme.colors.text};
         text-align: left;
       }
     }
@@ -32,4 +32,4 @@ export const Container = styled.table`
       margin-top: 8px;
     }
   }
-`
+`;

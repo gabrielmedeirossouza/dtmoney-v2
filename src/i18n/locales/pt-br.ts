@@ -2,8 +2,8 @@ export const ptBr = {
   path: {
     pages: {
       dashboard: {
-        newTransaction: 'Nova Transação'
-      }
-    }
-  }
-}
+        newTransaction: 'Nova Transação',
+      },
+    },
+  },
+};

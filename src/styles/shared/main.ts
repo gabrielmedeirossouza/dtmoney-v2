@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -20,9 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: sans-serif;
     font-size: 14px;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
 
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background};
   }
 
   body,
@@ -51,4 +51,4 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
-`
+`;

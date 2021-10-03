@@ -1,45 +1,45 @@
-import styled from 'styled-components'
-import { Card, DataTable } from '@/components/global'
+import styled from 'styled-components';
+import { Card, DataTable } from '@/components/global';
 
-import incomeIcon from '@/assets/icons/income.svg'
-import withdrawIcon from '@/assets/icons/withdraw.svg'
-import totalIcon from '@/assets/icons/total.svg'
+import incomeIcon from '@/assets/icons/income.svg';
+import withdrawIcon from '@/assets/icons/withdraw.svg';
+import totalIcon from '@/assets/icons/total.svg';
 
 export const Container = styled.div`
   max-width: 1120px;
   margin: -70px auto 0;
-`
+`;
 
 export const Header = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
-`
+`;
 
 export const CardIncome = styled(Card).attrs(({
-  text
+  text,
 }) => ({
-  title: "Entradas",
+  title: 'Entradas',
   icon: incomeIcon,
-  text
-}))``
+  text,
+}))``;
 
 export const CardWithdraw = styled(Card).attrs(({
-  text
+  text,
 }) => ({
-  title: "Saídas",
+  title: 'Saídas',
   icon: withdrawIcon,
-  text
-}))``
+  text,
+}))``;
 
 export const CardTotal = styled(Card).attrs(({
-  text
+  text,
 }) => ({
-  title: "Total",
+  title: 'Total',
   icon: totalIcon,
   text,
-  type: "positive"
-}))``
+  type: 'positive',
+}))``;
 
 export const StyledDataTable = styled(DataTable)`
   margin-top: 4rem;
@@ -51,11 +51,11 @@ export const StyledDataTable = styled(DataTable)`
 
       td,
       th {
-        color: ${props => props.theme.colors.textSmoothLight};
+        color: ${(props) => props.theme.colors.textSmoothLight};
       }
 
       td:first-child {
-        color: ${props => props.theme.colors.text};
+        color: ${(props) => props.theme.colors.text};
       }
     }
   }
@@ -65,7 +65,7 @@ export const StyledDataTable = styled(DataTable)`
       background-color: transparent;
     }
   }
-`
+`;
 
 interface TDataProps {
   type?: 'income' | 'withdraw'
@@ -73,14 +73,14 @@ interface TDataProps {
 
 const tDataColor = {
   income: 'positive',
-  withdraw: 'negative'
-}
+  withdraw: 'negative',
+};
 
 export const TData = styled.td<TDataProps>`
   && {
-    color: ${props => props.type
-      ? props.theme.colors[tDataColor[props.type]]
-      : props => props.theme.colors.textSmoothLight
-    };
+    color: ${(props) => (props.type
+    ? props.theme.colors[tDataColor[props.type]]
+    : props.theme.colors.textSmoothLight)
+};
   }
-`
+`;

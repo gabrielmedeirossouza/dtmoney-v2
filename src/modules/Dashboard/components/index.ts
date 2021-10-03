@@ -1,5 +1,5 @@
-import { Summary } from './Summary'
+import { Summary } from './Summary';
 
 export {
-  Summary
-}
+  Summary,
+};

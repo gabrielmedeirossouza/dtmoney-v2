@@ -1,25 +1,24 @@
-import { Trans } from 'react-i18next'
+import { Trans } from 'react-i18next';
 
-import { AppHeader } from '@/components/shared'
-import { Button } from '@/components/global'
-import { Summary } from './components'
+import { AppHeader } from '@/components/shared';
+import { Button } from '@/components/global';
+import { Summary } from './components';
 
-import { useTransactions } from '@/contexts/useTransactions'
+import { useTransactions } from '@/contexts/useTransactions';
 
+export const Dashboard = () => {
+  const { createNewTransaction } = useTransactions();
 
-export function Dashboard() {
-  const { createNewTransaction } = useTransactions()
-
-  function handleCreateNewTransaction() {
+  const handleCreateNewTransaction = () => {
     const data = {
       title: 'Título teste',
       amount: 900,
       type: 'Tipo teste',
-      category: 'Categoria teste'
-    }
+      category: 'Categoria teste',
+    };
 
-    createNewTransaction(data)
-  }
+    createNewTransaction(data);
+  };
 
   return (
     <>
@@ -31,5 +30,5 @@ export function Dashboard() {
 
       <Summary />
     </>
-  )
-}
+  );
+};

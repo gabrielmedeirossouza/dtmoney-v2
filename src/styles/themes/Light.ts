@@ -14,6 +14,6 @@ export const light = {
 
     positive: '#33CC95',
     negative: '#E62E4D',
-    attention: '#FF9E22'
-  }
-}
+    attention: '#FF9E22',
+  },
+};
