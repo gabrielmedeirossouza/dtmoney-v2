@@ -30,16 +30,22 @@
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "react/require-default-props": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars-experimental": "error",
+      "@typescript-eslint/no-unused-vars": [
+        2,
+        {
+          "args": "none"
+        }
+      ],
       "import/extensions": [
         "error",
         "ignorePackages",
         {
+          "js": "never",
+          "jsx": "never",
           "ts": "never",
           "tsx": "never"
         }
-      ],
+     ],
       "no-shadow": "off",
       "@typescript-eslint/no-shadow": ["error"]
     },
