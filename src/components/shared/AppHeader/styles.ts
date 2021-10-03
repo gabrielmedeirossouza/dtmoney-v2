@@ -13,3 +13,15 @@ export const MainContainer = styled.div`
   margin: 0 auto;
   padding: 36px 15px 136px;
 `;
+
+export const Menu = styled.div`
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 3rem;
+  line-height: 4px;
+`;

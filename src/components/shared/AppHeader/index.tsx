@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-import { Container, MainContainer } from './styles';
+import { Container, MainContainer, Menu } from './styles';
+
 import mainLogo from '@/assets/logos/main.svg';
 
 interface Props {
@@ -14,5 +15,7 @@ export const AppHeader = ({ children }: Props) => (
 
       {children}
     </MainContainer>
+
+    <Menu>...</Menu>
   </Container>
 );

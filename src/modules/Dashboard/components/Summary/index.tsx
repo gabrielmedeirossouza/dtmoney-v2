@@ -1,3 +1,5 @@
+import { Trans } from 'react-i18next';
+
 import { formatCurrency } from '@/support/formatters/formatCurrency';
 
 import {
@@ -49,10 +51,18 @@ export const Summary = () => (
     <StyledDataTable>
       <thead>
         <tr>
-          <th>Título</th>
-          <th>Preço</th>
-          <th>Categoria</th>
-          <th>Data</th>
+          <th>
+            <Trans i18nKey="global.transaction.title" />
+          </th>
+          <th>
+            <Trans i18nKey="global.transaction.price" />
+          </th>
+          <th>
+            <Trans i18nKey="global.transaction.category" />
+          </th>
+          <th>
+            <Trans i18nKey="global.transaction.date" />
+          </th>
         </tr>
       </thead>
 

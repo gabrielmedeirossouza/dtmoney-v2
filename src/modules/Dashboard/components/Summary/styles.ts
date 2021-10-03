@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import i18next from 'i18next';
+
 import { Card, DataTable } from '@/components/global';
 
 import incomeIcon from '@/assets/icons/income.svg';
@@ -19,7 +21,7 @@ export const Header = styled.section`
 export const CardIncome = styled(Card).attrs(({
   text,
 }) => ({
-  title: 'Entradas',
+  title: i18next.t('pages.dashboard.summary.header.incomes'),
   icon: incomeIcon,
   text,
 }))``;
@@ -27,7 +29,7 @@ export const CardIncome = styled(Card).attrs(({
 export const CardWithdraw = styled(Card).attrs(({
   text,
 }) => ({
-  title: 'Saídas',
+  title: i18next.t('pages.dashboard.summary.header.withdraws'),
   icon: withdrawIcon,
   text,
 }))``;
@@ -35,7 +37,7 @@ export const CardWithdraw = styled(Card).attrs(({
 export const CardTotal = styled(Card).attrs(({
   text,
 }) => ({
-  title: 'Total',
+  title: i18next.t('pages.dashboard.summary.header.total'),
   icon: totalIcon,
   text,
   type: 'positive',
@@ -78,9 +80,6 @@ const tDataColor = {
 
 export const TData = styled.td<TDataProps>`
   && {
-    color: ${(props) => (props.type
-    ? props.theme.colors[tDataColor[props.type]]
-    : props.theme.colors.textSmoothLight)
-};
+    color: ${({ type, theme }) => (type ? theme.colors[tDataColor[type]] : theme.colors.textSmoothLight)};
   }
 `;
