@@ -1,27 +1,44 @@
+import { formatCurrency } from '@/support/formatters/formatCurrency'
+
 import {
   Container,
   Header,
   CardIncome,
   CardWithdraw,
   CardTotal,
-  StyledDataTable
+  StyledDataTable,
+  TData
 } from './styles'
 
-
-const head = [
-  'Título',
-  'Preço',
-  'Categoria',
-  'Data'
+const data: Data[] = [
+  {
+    id: '1',
+    title: 'Supermercado',
+    amount: 1000,
+    type: 'withdraw',
+    category: 'Compras',
+    date: '01/10/2021'
+  },
+  {
+    id: '2',
+    title: 'Site para harbor',
+    amount: 7000,
+    type: 'income',
+    category: 'Vendas',
+    date: '27/09/2021'
+  },
 ]
 
-const body = [
-  ['Teste', '1000', 'qualquer', '13/10/1997'],
-  ['Supermercado', '3000', 'algum', '13/10/1996'],
-  ['Te', '2000', 'compras', '13/10/1995'],
-]
+interface Data {
+  id: string
+  title: string
+  amount: number
+  type: 'income' | 'withdraw'
+  category: string
+  date: string
+}
 
-export function Summary() {
+export const Summary = () => {
   return (
     <Container>
       <Header>
@@ -33,15 +50,21 @@ export function Summary() {
       <StyledDataTable>
         <thead>
           <tr>
-            {head.map(th => <th key={String(th)}>{th}</th>)}
+            <th>Título</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Data</th>
           </tr>
         </thead>
 
         <tbody>
-          {body.map((tr, i) => (
-            <tr key={String(i)}>{tr.map((td, k) => (
-              <td key={String(k)}>{td}</td>
-            ))}</tr>
+          {data.map(({ id, title, amount, type, category, date }) => (
+            <tr key={id}>
+              <TData>{title}</TData>
+              <TData type={type}>{formatCurrency({ amount, type })}</TData>
+              <TData>{category}</TData>
+              <TData>{date}</TData>
+            </tr>
           ))}
         </tbody>
       </StyledDataTable>

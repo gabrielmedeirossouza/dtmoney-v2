@@ -5,6 +5,7 @@ declare module 'styled-components' {
     title: string
 
     colors: {
+      [key: string]: string
       primary: string
       secondary: string
 

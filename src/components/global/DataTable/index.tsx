@@ -4,11 +4,12 @@ import { Container } from './styles'
 
 interface Props {
   children: ReactNode
+  className?: string
 }
 
-export function DataTable({ children }: Props) {
+export const DataTable = ({ children, className }: Props) => {
   return (
-    <Container>
+    <Container className={className}>
       {children}
     </Container>
   )
