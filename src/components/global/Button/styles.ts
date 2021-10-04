@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.button`
   font-size: 16px;
 
-  color: #fafafa;
+  color: ${(props) => props.theme.colors.textLight};
   background-color: ${(props) => props.theme.colors.secondary};
 
   border: none;

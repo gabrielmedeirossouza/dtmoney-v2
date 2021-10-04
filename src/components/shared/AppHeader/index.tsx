@@ -1,6 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
-import { Container, MainContainer, Menu } from './styles';
+import {
+  Container,
+  MainContainer,
+  Menu,
+  StyledButton,
+  Icon,
+  SideMenu,
+} from './styles';
 
 import mainLogo from '@/assets/logos/main.svg';
 
@@ -8,14 +15,30 @@ interface Props {
   children: ReactNode
 }
 
-export const AppHeader = ({ children }: Props) => (
-  <Container>
-    <MainContainer>
-      <img src={mainLogo} alt="logo" />
+export const AppHeader = ({ children }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-      {children}
-    </MainContainer>
+  const handleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-    <Menu>...</Menu>
-  </Container>
-);
+  return (
+    <Container>
+      <MainContainer>
+        <img src={mainLogo} alt="logo" />
+
+        {children}
+      </MainContainer>
+
+      <Menu>
+        <StyledButton onRequestClick={handleMenu}>
+          <Icon />
+        </StyledButton>
+
+        <SideMenu isOpen={isOpen}>
+          <button type="button">teste</button>
+        </SideMenu>
+      </Menu>
+    </Container>
+  );
+};
