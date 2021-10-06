@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import i18next from 'i18next';
 
 import { Card, DataTable } from '@/components/global';
 
@@ -18,28 +17,16 @@ export const Header = styled.section`
   column-gap: 20px;
 `;
 
-export const CardIncome = styled(Card).attrs(({
-  text,
-}) => ({
-  title: i18next.t('pages.dashboard.summary.header.incomes'),
+export const CardIncome = styled(Card).attrs(() => ({
   icon: incomeIcon,
-  text,
 }))``;
 
-export const CardWithdraw = styled(Card).attrs(({
-  text,
-}) => ({
-  title: i18next.t('pages.dashboard.summary.header.withdraws'),
+export const CardWithdraw = styled(Card).attrs(() => ({
   icon: withdrawIcon,
-  text,
 }))``;
 
-export const CardTotal = styled(Card).attrs(({
-  text,
-}) => ({
-  title: i18next.t('pages.dashboard.summary.header.total'),
+export const CardTotal = styled(Card).attrs(() => ({
   icon: totalIcon,
-  text,
   type: 'positive',
 }))``;
 

@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react';
 
+import { LanguageSelector } from '@/components/global/LanguageSelector';
 import {
   Container,
   MainContainer,
@@ -7,6 +8,7 @@ import {
   StyledButton,
   Icon,
   SideMenu,
+  Header,
 } from './styles';
 
 import mainLogo from '@/assets/logos/main.svg';
@@ -18,9 +20,7 @@ interface Props {
 export const AppHeader = ({ children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleMenu = () => setIsOpen(!isOpen);
 
   return (
     <Container>
@@ -31,12 +31,14 @@ export const AppHeader = ({ children }: Props) => {
       </MainContainer>
 
       <Menu>
-        <StyledButton onRequestClick={handleMenu}>
+        <StyledButton onClick={handleMenu}>
           <Icon />
         </StyledButton>
 
         <SideMenu isOpen={isOpen}>
-          <button type="button">teste</button>
+          <Header>
+            <LanguageSelector />
+          </Header>
         </SideMenu>
       </Menu>
     </Container>

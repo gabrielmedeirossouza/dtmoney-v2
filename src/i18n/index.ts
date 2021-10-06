@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next';
 import { translations } from './locales';
 
 const i18nConfig = {
+  debug: true,
   resources: translations,
   fallbackLng: 'pt-BR',
   defaultNS: 'path',

@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
 
   max-width: 1120px;
   margin: 0 auto;
-  padding: 36px 15px 136px;
+  padding: 2rem 1rem 8.5rem;
 `;
 
 export const Menu = styled.div`
@@ -36,6 +36,7 @@ export const StyledButton = styled(Button)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+  z-index: 1;
 
   background-color: transparent;
   padding: 0;
@@ -48,6 +49,14 @@ export const StyledButton = styled(Button)`
       fill: ${(props) => String(darken(0.2, props.theme.colors.textLight))};
     }
   }
+
+  &:active {
+    filter: none;
+
+    ${Icon} {
+      fill: ${(props) => String(darken(0.7, props.theme.colors.textLight))};
+    }
+  }
 `;
 
 interface SideMenuProps {
@@ -56,16 +65,22 @@ interface SideMenuProps {
 
 export const SideMenu = styled.nav<SideMenuProps>`
   ${(props) => !props.isOpen && css`
-    display: none;
-    transform: translateX(-500px);
-    /* adicionar animação */
+    transform: translateX(250px);
   `}
-
-  z-index: -1;
 
   width: 250px;
   height: 100vh;
 
   background-color: ${(props) => props.theme.colors.secondary};
-  transition: transform 1s;
+  transition: transform 0.2s;
+`;
+
+export const Header = styled.div`
+  padding: 1rem 4rem 1rem 1rem;
+  background-color: transparent;
+
+  &>div {
+    height: 50px;
+    background-color: tomato;
+  }
 `;

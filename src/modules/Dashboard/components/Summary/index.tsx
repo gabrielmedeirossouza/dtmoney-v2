@@ -1,4 +1,4 @@
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { formatCurrency } from '@/support/formatters/formatCurrency';
 
@@ -40,44 +40,57 @@ interface Data {
   date: string
 }
 
-export const Summary = () => (
-  <Container>
-    <Header>
-      <CardIncome text="R$ 1.200,00" />
-      <CardWithdraw text="R$ 200,00" />
-      <CardTotal text="R$ 1.000,00" />
-    </Header>
+export const Summary = () => {
+  const { t } = useTranslation();
 
-    <StyledDataTable>
-      <thead>
-        <tr>
-          <th>
-            <Trans i18nKey="global.transaction.title" />
-          </th>
-          <th>
-            <Trans i18nKey="global.transaction.price" />
-          </th>
-          <th>
-            <Trans i18nKey="global.transaction.category" />
-          </th>
-          <th>
-            <Trans i18nKey="global.transaction.date" />
-          </th>
-        </tr>
-      </thead>
+  return (
+    <Container>
+      <Header>
+        <CardIncome
+          title={t('pages.dashboard.summary.header.incomes')}
+          text="R$ 1.200,00"
+        />
+        <CardWithdraw
+          title={t('pages.dashboard.summary.header.withdraws')}
+          text="R$ 200,00"
+        />
+        <CardTotal
+          title={t('pages.dashboard.summary.header.total')}
+          text="R$ 1.000,00"
+        />
+      </Header>
 
-      <tbody>
-        {data.map(({
-          id, title, amount, type, category, date,
-        }) => (
-          <tr key={id}>
-            <TData>{title}</TData>
-            <TData type={type}>{formatCurrency({ amount, type })}</TData>
-            <TData>{category}</TData>
-            <TData>{date}</TData>
+      <StyledDataTable>
+        <thead>
+          <tr>
+            <th>
+              {t('global.transaction.title')}
+            </th>
+            <th>
+              {t('global.transaction.price')}
+            </th>
+            <th>
+              {t('global.transaction.category')}
+            </th>
+            <th>
+              {t('global.transaction.date')}
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </StyledDataTable>
-  </Container>
-);
+        </thead>
+
+        <tbody>
+          {data.map(({
+            id, title, amount, type, category, date,
+          }) => (
+            <tr key={id}>
+              <TData>{title}</TData>
+              <TData type={type}>{formatCurrency({ amount, type })}</TData>
+              <TData>{category}</TData>
+              <TData>{date}</TData>
+            </tr>
+          ))}
+        </tbody>
+      </StyledDataTable>
+    </Container>
+  );
+};
