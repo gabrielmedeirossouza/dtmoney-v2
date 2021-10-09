@@ -1,6 +1,9 @@
-import { ReactNode, useState } from 'react';
+import {
+  ReactNode, useState, useEffect,
+} from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { LanguageSelector } from '@/components/global/LanguageSelector';
+import { Selector } from '@/components/global';
 import {
   Container,
   MainContainer,
@@ -17,10 +20,35 @@ interface Props {
   children: ReactNode
 }
 
+const br = 'pt-BR';
+const us = 'en-US';
+
+// useReducer
+
 export const AppHeader = ({ children }: Props) => {
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isActiveLanguageSelector, setIsActiveLanguageSelector] = useState(false);
 
   const handleMenu = () => setIsOpen(!isOpen);
+
+  const handleToggleLanguageSelector = () => {
+    setIsActiveLanguageSelector(!isActiveLanguageSelector);
+  };
+
+  useEffect(() => {
+    const { language } = i18n;
+
+    const isActive = language === br;
+
+    setIsActiveLanguageSelector(isActive);
+  }, []);
+
+  useEffect(() => {
+    const language = isActiveLanguageSelector ? br : us;
+
+    i18n.changeLanguage(language);
+  }, [isActiveLanguageSelector]);
 
   return (
     <Container>
@@ -37,7 +65,12 @@ export const AppHeader = ({ children }: Props) => {
 
         <SideMenu isOpen={isOpen}>
           <Header>
-            <LanguageSelector />
+            en
+            <Selector
+              isActive={isActiveLanguageSelector}
+              onToggle={handleToggleLanguageSelector}
+            />
+            pt
           </Header>
         </SideMenu>
       </Menu>
